@@ -1,0 +1,486 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.15.11
+3 info using node@v4.6.2
+4 verbose readDependencies loading dependencies from /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/package.json
+5 warn package.json pimatic-mi-flora@0.0.1 No repository field.
+6 verbose install where, deps [ '/home/pimatic/pimatic-app/node_modules/pimatic-mi-flora',
+6 verbose install   [] ]
+7 verbose install peerDependency pimatic wasn't going to be installed; adding
+8 warn peerDependencies The peer dependency pimatic included from pimatic-mi-flora will no
+9 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+10 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+11 verbose install peerDependency pimatic-ble wasn't going to be installed; adding
+12 warn peerDependencies The peer dependency pimatic-ble included from pimatic-mi-flora will no
+13 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+14 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+15 verbose install where, peers [ '/home/pimatic/pimatic-app/node_modules/pimatic-mi-flora',
+15 verbose install   [ 'pimatic', 'pimatic-ble' ] ]
+16 verbose installManyTop reading for lifecycle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/package.json
+17 info preinstall pimatic-mi-flora@0.0.1
+18 verbose installManyTop reading scoped package data from /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/node-mi-flora/package.json
+19 verbose installManyTop reading scoped package data from /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/package.json
+20 verbose installManyTop reading scoped package data from /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic-ble/package.json
+21 info package.json pimatic-ble@0.8.0 No repository field.
+22 info package.json pimatic-ble@0.8.0 No license field.
+23 verbose readDependencies loading dependencies from /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/package.json
+24 verbose targetResolver reading package data from /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/node-mi-flora/package.json
+25 verbose targetResolver reading package data from /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/package.json
+26 verbose targetResolver reading package data from /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic-ble/package.json
+27 verbose targetResolver reading package data from /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/.bin/pimatic.js/package.json
+28 verbose already installed skipping pimatic@>=0.8.0 <1.0.0 /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora
+29 verbose already installed skipping pimatic-ble@0.9.* /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora
+30 silly install resolved []
+31 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora
+32 info linkStuff pimatic-mi-flora@0.0.1
+33 silly linkStuff pimatic-mi-flora@0.0.1 has /home/pimatic/pimatic-app/node_modules as its parent node_modules
+34 verbose linkBins pimatic-mi-flora@0.0.1
+35 verbose linkMans pimatic-mi-flora@0.0.1
+36 verbose rebuildBundles pimatic-mi-flora@0.0.1
+37 verbose rebuildBundles [ '.bin', 'node-mi-flora', 'pimatic', 'pimatic-ble' ]
+38 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/node-mi-flora
+39 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/node-mi-flora
+40 info preinstall node-mi-flora@0.1.0
+41 info linkStuff node-mi-flora@0.1.0
+42 silly linkStuff node-mi-flora@0.1.0 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules as its parent node_modules
+43 verbose linkBins node-mi-flora@0.1.0
+44 verbose linkMans node-mi-flora@0.1.0
+45 verbose rebuildBundles node-mi-flora@0.1.0
+46 verbose rebuildBundles [ 'debug', 'noble' ]
+47 info install node-mi-flora@0.1.0
+48 info postinstall node-mi-flora@0.1.0
+49 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic
+50 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic
+51 info preinstall pimatic@0.8.107
+52 info linkStuff pimatic@0.8.107
+53 silly linkStuff pimatic@0.8.107 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules as its parent node_modules
+54 verbose linkBins pimatic@0.8.107
+55 verbose link bins [ { 'pimatic.js': './pimatic.js' },
+55 verbose link bins   '/home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/.bin',
+55 verbose link bins   false ]
+56 verbose linkMans pimatic@0.8.107
+57 verbose rebuildBundles pimatic@0.8.107
+58 verbose rebuildBundles [ '.bin',
+58 verbose rebuildBundles   'bluebird',
+58 verbose rebuildBundles   'byline',
+58 verbose rebuildBundles   'cassert',
+58 verbose rebuildBundles   'cjson',
+58 verbose rebuildBundles   'coffee-script',
+58 verbose rebuildBundles   'colors',
+58 verbose rebuildBundles   'connect-timeout',
+58 verbose rebuildBundles   'convict',
+58 verbose rebuildBundles   'cross-spawn',
+58 verbose rebuildBundles   'daemon',
+58 verbose rebuildBundles   'date-format-lite',
+58 verbose rebuildBundles   'decl-api',
+58 verbose rebuildBundles   'express',
+58 verbose rebuildBundles   'fs.extra',
+58 verbose rebuildBundles   'gethub',
+58 verbose rebuildBundles   'human-format',
+58 verbose rebuildBundles   'i18n',
+58 verbose rebuildBundles   'jayschema',
+58 verbose rebuildBundles   'jsonlint',
+58 verbose rebuildBundles   'knex',
+58 verbose rebuildBundles   'lodash',
+58 verbose rebuildBundles   'logrotate-stream',
+58 verbose rebuildBundles   'moment',
+58 verbose rebuildBundles   'relaxed-json',
+58 verbose rebuildBundles   'request-promise',
+58 verbose rebuildBundles   'semver',
+58 verbose rebuildBundles   'socket.io',
+58 verbose rebuildBundles   'source-map-support',
+58 verbose rebuildBundles   'string',
+58 verbose rebuildBundles   'winston' ]
+59 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/bluebird
+60 silly gentlyRm /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/.bin/pimatic.js is being purged
+61 verbose gentlyRm don't care about contents; nuking /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/.bin/pimatic.js
+62 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/bluebird
+63 silly vacuum-fs purging /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/.bin/pimatic.js
+64 silly vacuum-fs removing /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/.bin
+65 info preinstall bluebird@2.10.2
+66 silly vacuum-fs quitting because other entries in /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules
+67 info linkStuff bluebird@2.10.2
+68 silly linkStuff bluebird@2.10.2 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+69 verbose linkBins bluebird@2.10.2
+70 verbose linkMans bluebird@2.10.2
+71 verbose rebuildBundles bluebird@2.10.2
+72 info install bluebird@2.10.2
+73 info postinstall bluebird@2.10.2
+74 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/byline
+75 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/byline
+76 info preinstall byline@4.2.1
+77 info linkStuff byline@4.2.1
+78 silly linkStuff byline@4.2.1 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+79 verbose linkBins byline@4.2.1
+80 verbose linkMans byline@4.2.1
+81 verbose rebuildBundles byline@4.2.1
+82 info install byline@4.2.1
+83 info postinstall byline@4.2.1
+84 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/cassert
+85 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/cassert
+86 info preinstall cassert@0.1.2
+87 info linkStuff cassert@0.1.2
+88 silly linkStuff cassert@0.1.2 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+89 verbose linkBins cassert@0.1.2
+90 verbose linkMans cassert@0.1.2
+91 verbose rebuildBundles cassert@0.1.2
+92 verbose rebuildBundles [ 'callsite' ]
+93 info install cassert@0.1.2
+94 info postinstall cassert@0.1.2
+95 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/cjson
+96 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/cjson
+97 info preinstall cjson@0.4.0
+98 info linkStuff cjson@0.4.0
+99 silly linkStuff cjson@0.4.0 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+100 verbose linkBins cjson@0.4.0
+101 verbose linkMans cjson@0.4.0
+102 verbose rebuildBundles cjson@0.4.0
+103 verbose rebuildBundles [ 'json-parse-helpfulerror' ]
+104 info install cjson@0.4.0
+105 info postinstall cjson@0.4.0
+106 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/coffee-script
+107 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/coffee-script
+108 info preinstall coffee-script@1.8.0
+109 info linkStuff coffee-script@1.8.0
+110 silly linkStuff coffee-script@1.8.0 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+111 verbose linkBins coffee-script@1.8.0
+112 verbose link bins [ { coffee: './bin/coffee', cake: './bin/cake' },
+112 verbose link bins   '/home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin',
+112 verbose link bins   false ]
+113 verbose linkMans coffee-script@1.8.0
+114 verbose rebuildBundles coffee-script@1.8.0
+115 verbose rebuildBundles [ 'mkdirp' ]
+116 silly gentlyRm /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/coffee is being purged
+117 verbose gentlyRm don't care about contents; nuking /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/coffee
+118 silly gentlyRm /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/cake is being purged
+119 verbose gentlyRm don't care about contents; nuking /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/cake
+120 silly vacuum-fs purging /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/coffee
+121 silly vacuum-fs purging /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/cake
+122 silly vacuum-fs quitting because other entries in /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin
+123 silly vacuum-fs quitting because other entries in /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin
+124 info install coffee-script@1.8.0
+125 info postinstall coffee-script@1.8.0
+126 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/colors
+127 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/colors
+128 info preinstall colors@0.6.2
+129 info linkStuff colors@0.6.2
+130 silly linkStuff colors@0.6.2 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+131 verbose linkBins colors@0.6.2
+132 verbose linkMans colors@0.6.2
+133 verbose rebuildBundles colors@0.6.2
+134 info install colors@0.6.2
+135 info postinstall colors@0.6.2
+136 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/convict
+137 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/convict
+138 info preinstall convict@0.4.3
+139 info linkStuff convict@0.4.3
+140 silly linkStuff convict@0.4.3 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+141 verbose linkBins convict@0.4.3
+142 verbose linkMans convict@0.4.3
+143 verbose rebuildBundles convict@0.4.3
+144 verbose rebuildBundles [ 'cjson', 'optimist', 'validator' ]
+145 info install convict@0.4.3
+146 info postinstall convict@0.4.3
+147 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/daemon
+148 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/daemon
+149 info preinstall daemon@1.1.0
+150 info linkStuff daemon@1.1.0
+151 silly linkStuff daemon@1.1.0 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+152 verbose linkBins daemon@1.1.0
+153 verbose linkMans daemon@1.1.0
+154 verbose rebuildBundles daemon@1.1.0
+155 info install daemon@1.1.0
+156 info postinstall daemon@1.1.0
+157 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/date-format-lite
+158 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/date-format-lite
+159 info preinstall date-format-lite@0.5.0
+160 info linkStuff date-format-lite@0.5.0
+161 silly linkStuff date-format-lite@0.5.0 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+162 verbose linkBins date-format-lite@0.5.0
+163 verbose linkMans date-format-lite@0.5.0
+164 verbose rebuildBundles date-format-lite@0.5.0
+165 info install date-format-lite@0.5.0
+166 info postinstall date-format-lite@0.5.0
+167 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/decl-api
+168 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/decl-api
+169 info preinstall decl-api@0.0.20
+170 info linkStuff decl-api@0.0.20
+171 silly linkStuff decl-api@0.0.20 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+172 verbose linkBins decl-api@0.0.20
+173 verbose linkMans decl-api@0.0.20
+174 verbose rebuildBundles decl-api@0.0.20
+175 verbose rebuildBundles [ 'bluebird' ]
+176 info install decl-api@0.0.20
+177 info postinstall decl-api@0.0.20
+178 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/express
+179 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/express
+180 info preinstall express@3.21.2
+181 info linkStuff express@3.21.2
+182 silly linkStuff express@3.21.2 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+183 verbose linkBins express@3.21.2
+184 verbose link bins [ { express: './bin/express' },
+184 verbose link bins   '/home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin',
+184 verbose link bins   false ]
+185 verbose linkMans express@3.21.2
+186 verbose rebuildBundles express@3.21.2
+187 verbose rebuildBundles [ 'basic-auth',
+187 verbose rebuildBundles   'commander',
+187 verbose rebuildBundles   'connect',
+187 verbose rebuildBundles   'content-disposition',
+187 verbose rebuildBundles   'content-type',
+187 verbose rebuildBundles   'cookie',
+187 verbose rebuildBundles   'cookie-signature',
+187 verbose rebuildBundles   'debug',
+187 verbose rebuildBundles   'depd',
+187 verbose rebuildBundles   'escape-html',
+187 verbose rebuildBundles   'etag',
+187 verbose rebuildBundles   'fresh',
+187 verbose rebuildBundles   'merge-descriptors',
+187 verbose rebuildBundles   'methods',
+187 verbose rebuildBundles   'mkdirp',
+187 verbose rebuildBundles   'parseurl',
+187 verbose rebuildBundles   'proxy-addr',
+187 verbose rebuildBundles   'range-parser',
+187 verbose rebuildBundles   'send',
+187 verbose rebuildBundles   'utils-merge',
+187 verbose rebuildBundles   'vary' ]
+188 silly gentlyRm /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/express is being purged
+189 verbose gentlyRm don't care about contents; nuking /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/express
+190 silly vacuum-fs purging /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/express
+191 silly vacuum-fs quitting because other entries in /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin
+192 info install express@3.21.2
+193 info postinstall express@3.21.2
+194 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/fs.extra
+195 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/fs.extra
+196 info preinstall fs.extra@1.2.1
+197 info linkStuff fs.extra@1.2.1
+198 silly linkStuff fs.extra@1.2.1 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+199 verbose linkBins fs.extra@1.2.1
+200 verbose linkMans fs.extra@1.2.1
+201 verbose rebuildBundles fs.extra@1.2.1
+202 verbose rebuildBundles [ 'fs-extra', 'mkdirp', 'walk' ]
+203 info install fs.extra@1.2.1
+204 info postinstall fs.extra@1.2.1
+205 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/gethub
+206 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/gethub
+207 info preinstall gethub@2.0.2
+208 info linkStuff gethub@2.0.2
+209 silly linkStuff gethub@2.0.2 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+210 verbose linkBins gethub@2.0.2
+211 verbose link bins [ { gethub: './bin/gethub' },
+211 verbose link bins   '/home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin',
+211 verbose link bins   false ]
+212 verbose linkMans gethub@2.0.2
+213 verbose rebuildBundles gethub@2.0.2
+214 verbose rebuildBundles [ 'hyperquest', 'promise', 'rimraf', 'tar' ]
+215 silly gentlyRm /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/gethub is being purged
+216 verbose gentlyRm don't care about contents; nuking /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/gethub
+217 silly vacuum-fs purging /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/gethub
+218 silly vacuum-fs quitting because other entries in /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin
+219 info install gethub@2.0.2
+220 info postinstall gethub@2.0.2
+221 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/human-format
+222 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/human-format
+223 info preinstall human-format@0.2.0
+224 info linkStuff human-format@0.2.0
+225 silly linkStuff human-format@0.2.0 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+226 verbose linkBins human-format@0.2.0
+227 verbose linkMans human-format@0.2.0
+228 verbose rebuildBundles human-format@0.2.0
+229 info install human-format@0.2.0
+230 info postinstall human-format@0.2.0
+231 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/i18n
+232 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/i18n
+233 info preinstall i18n@0.4.1
+234 info linkStuff i18n@0.4.1
+235 silly linkStuff i18n@0.4.1 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+236 verbose linkBins i18n@0.4.1
+237 verbose linkMans i18n@0.4.1
+238 verbose rebuildBundles i18n@0.4.1
+239 verbose rebuildBundles [ 'debug', 'sprintf' ]
+240 info install i18n@0.4.1
+241 info postinstall i18n@0.4.1
+242 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/jayschema
+243 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/jayschema
+244 info preinstall jayschema@0.2.8
+245 info linkStuff jayschema@0.2.8
+246 silly linkStuff jayschema@0.2.8 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+247 verbose linkBins jayschema@0.2.8
+248 verbose link bins [ { jayschema: './bin/validate.js' },
+248 verbose link bins   '/home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin',
+248 verbose link bins   false ]
+249 verbose linkMans jayschema@0.2.8
+250 verbose rebuildBundles jayschema@0.2.8
+251 verbose rebuildBundles [ 'when' ]
+252 silly gentlyRm /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/jayschema is being purged
+253 verbose gentlyRm don't care about contents; nuking /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/jayschema
+254 silly vacuum-fs purging /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/jayschema
+255 silly vacuum-fs quitting because other entries in /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin
+256 info install jayschema@0.2.8
+257 info postinstall jayschema@0.2.8
+258 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/knex
+259 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/knex
+260 info preinstall knex@0.9.0
+261 info linkStuff knex@0.9.0
+262 silly linkStuff knex@0.9.0 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+263 verbose linkBins knex@0.9.0
+264 verbose link bins [ { knex: './lib/bin/cli.js' },
+264 verbose link bins   '/home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin',
+264 verbose link bins   false ]
+265 verbose linkMans knex@0.9.0
+266 verbose rebuildBundles knex@0.9.0
+267 verbose rebuildBundles [ 'chalk',
+267 verbose rebuildBundles   'commander',
+267 verbose rebuildBundles   'debug',
+267 verbose rebuildBundles   'inherits',
+267 verbose rebuildBundles   'interpret',
+267 verbose rebuildBundles   'liftoff',
+267 verbose rebuildBundles   'lodash',
+267 verbose rebuildBundles   'minimist',
+267 verbose rebuildBundles   'mkdirp',
+267 verbose rebuildBundles   'pg-connection-string',
+267 verbose rebuildBundles   'pool2',
+267 verbose rebuildBundles   'readable-stream',
+267 verbose rebuildBundles   'tildify',
+267 verbose rebuildBundles   'v8flags' ]
+268 silly gentlyRm /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/knex is being purged
+269 verbose gentlyRm don't care about contents; nuking /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/knex
+270 silly vacuum-fs purging /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/knex
+271 silly vacuum-fs quitting because other entries in /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin
+272 info install knex@0.9.0
+273 info postinstall knex@0.9.0
+274 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/lodash
+275 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/lodash
+276 info preinstall lodash@2.4.1
+277 info linkStuff lodash@2.4.1
+278 silly linkStuff lodash@2.4.1 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+279 verbose linkBins lodash@2.4.1
+280 verbose linkMans lodash@2.4.1
+281 verbose rebuildBundles lodash@2.4.1
+282 info install lodash@2.4.1
+283 info postinstall lodash@2.4.1
+284 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/moment
+285 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/moment
+286 info preinstall moment@2.6.0
+287 info linkStuff moment@2.6.0
+288 silly linkStuff moment@2.6.0 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+289 verbose linkBins moment@2.6.0
+290 verbose linkMans moment@2.6.0
+291 verbose rebuildBundles moment@2.6.0
+292 info install moment@2.6.0
+293 info postinstall moment@2.6.0
+294 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/relaxed-json
+295 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/relaxed-json
+296 info preinstall relaxed-json@0.2.9
+297 info linkStuff relaxed-json@0.2.9
+298 silly linkStuff relaxed-json@0.2.9 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+299 verbose linkBins relaxed-json@0.2.9
+300 verbose link bins [ { rjson: './bin/rjson.js' },
+300 verbose link bins   '/home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin',
+300 verbose link bins   false ]
+301 verbose linkMans relaxed-json@0.2.9
+302 verbose rebuildBundles relaxed-json@0.2.9
+303 verbose rebuildBundles [ 'chalk', 'commander' ]
+304 silly gentlyRm /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/rjson is being purged
+305 verbose gentlyRm don't care about contents; nuking /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/rjson
+306 silly vacuum-fs purging /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/rjson
+307 silly vacuum-fs quitting because other entries in /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin
+308 info install relaxed-json@0.2.9
+309 info postinstall relaxed-json@0.2.9
+310 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/semver
+311 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/semver
+312 info preinstall semver@2.2.1
+313 info linkStuff semver@2.2.1
+314 silly linkStuff semver@2.2.1 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+315 verbose linkBins semver@2.2.1
+316 verbose link bins [ { semver: './bin/semver' },
+316 verbose link bins   '/home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin',
+316 verbose link bins   false ]
+317 verbose linkMans semver@2.2.1
+318 verbose rebuildBundles semver@2.2.1
+319 silly gentlyRm /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/semver is being purged
+320 verbose gentlyRm don't care about contents; nuking /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/semver
+321 silly vacuum-fs purging /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin/semver
+322 silly vacuum-fs quitting because other entries in /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/.bin
+323 info install semver@2.2.1
+324 info postinstall semver@2.2.1
+325 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/source-map-support
+326 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/source-map-support
+327 info preinstall source-map-support@0.2.10
+328 info linkStuff source-map-support@0.2.10
+329 silly linkStuff source-map-support@0.2.10 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+330 verbose linkBins source-map-support@0.2.10
+331 verbose linkMans source-map-support@0.2.10
+332 verbose rebuildBundles source-map-support@0.2.10
+333 verbose rebuildBundles [ 'source-map' ]
+334 info install source-map-support@0.2.10
+335 info postinstall source-map-support@0.2.10
+336 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/string
+337 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/string
+338 info preinstall string@1.8.1
+339 info linkStuff string@1.8.1
+340 silly linkStuff string@1.8.1 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+341 verbose linkBins string@1.8.1
+342 verbose linkMans string@1.8.1
+343 verbose rebuildBundles string@1.8.1
+344 info install string@1.8.1
+345 info postinstall string@1.8.1
+346 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/winston
+347 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/winston
+348 info preinstall winston@0.7.3
+349 info linkStuff winston@0.7.3
+350 silly linkStuff winston@0.7.3 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules as its parent node_modules
+351 verbose linkBins winston@0.7.3
+352 verbose linkMans winston@0.7.3
+353 verbose rebuildBundles winston@0.7.3
+354 verbose rebuildBundles [ 'async', 'cycle', 'eyes', 'pkginfo', 'request', 'stack-trace' ]
+355 info install winston@0.7.3
+356 info postinstall winston@0.7.3
+357 info install pimatic@0.8.107
+358 info postinstall pimatic@0.8.107
+359 verbose rebuild bundle /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic-ble
+360 info build /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic-ble
+361 info preinstall pimatic-ble@0.8.0
+362 info linkStuff pimatic-ble@0.8.0
+363 silly linkStuff pimatic-ble@0.8.0 has /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules as its parent node_modules
+364 verbose linkBins pimatic-ble@0.8.0
+365 verbose linkMans pimatic-ble@0.8.0
+366 verbose rebuildBundles pimatic-ble@0.8.0
+367 verbose rebuildBundles [ 'noble' ]
+368 info install pimatic-ble@0.8.0
+369 info postinstall pimatic-ble@0.8.0
+370 info install pimatic-mi-flora@0.0.1
+371 info postinstall pimatic-mi-flora@0.0.1
+372 info prepublish pimatic-mi-flora@0.0.1
+373 verbose validateInstall loading /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/package.json for validation
+374 warn unmet dependency /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/socket.io/node_modules/socket.io-parser requires debug@'0.7.4' but will load
+374 warn unmet dependency /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/socket.io/node_modules/debug,
+374 warn unmet dependency which is version 2.1.0
+375 warn unmet dependency /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client requires debug@'1.0.4' but will load
+375 warn unmet dependency /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/socket.io/node_modules/socket.io-client/node_modules/debug,
+375 warn unmet dependency which is version 0.7.4
+376 warn unmet dependency /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client requires parseuri@'0.0.4' but will load
+376 warn unmet dependency /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/socket.io/node_modules/socket.io-client/node_modules/parseuri,
+376 warn unmet dependency which is version 0.0.2
+377 warn unmet dependency /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/socket.io/node_modules/socket.io-adapter/node_modules/socket.io-parser requires debug@'0.7.4' but will load
+377 warn unmet dependency /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora/node_modules/pimatic/node_modules/socket.io/node_modules/socket.io-adapter/node_modules/debug,
+377 warn unmet dependency which is version 1.0.2
+378 verbose stack Error: The package pimatic-ble@0.8.0 does not satisfy its siblings' peerDependencies requirements!
+378 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+378 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
+378 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+378 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+378 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+378 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+378 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+378 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+378 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+378 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+379 verbose cwd /home/pimatic/pimatic-app/node_modules/pimatic-mi-flora
+380 error Linux 4.9.35-v7+
+381 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+382 error node v4.6.2
+383 error npm  v2.15.11
+384 error code EPEERINVALID
+385 error peerinvalid The package pimatic-ble@0.8.0 does not satisfy its siblings' peerDependencies requirements!
+386 verbose exit [ 1, true ]
