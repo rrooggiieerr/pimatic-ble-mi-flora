@@ -22,7 +22,7 @@ module.exports = (env) ->
           @ble.registerName 'Flower mate'
           @ble.registerName 'Flower care'
 
-          (@ble.addOnScan device for device in @devices)
+          @ble.addOnScan device for device in @devices
 
           @ble.on('discover', (peripheral) =>
             @emit 'discover-' + peripheral.uuid, peripheral
@@ -75,16 +75,7 @@ module.exports = (env) ->
     SERVICE_UUIDS = [ DATA_SERVICE_UUID ]
     CHARACTERISTIC_UUIDS = [ DATA_CHARACTERISTIC_UUID, FIRMWARE_CHARACTERISTIC_UUID, REALTIME_CHARACTERISTIC_UUID ]
 
-    temperature: null
-    light: null
-    moisture: null
-    fertility: null
-    battery: null
-    firmware: null
-
     constructor: (@config, plugin, lastState) ->
-      env.logger.debug 'lastState: '
-      env.logger.debug lastState
       @id = @config.id
       @name = @config.name
       @interval = @config.interval
@@ -157,25 +148,23 @@ module.exports = (env) ->
       env.logger.debug 'Light: %s lux', @light
       env.logger.debug 'moisture: %s%', @moisture
       env.logger.debug 'fertility: %s µS/cm', @fertility
-      @emit 'temperature', Number @temperature
-      @emit 'light', Number @light
-      @emit 'moisture', Number @moisture
-      @emit 'fertility', Number @fertility
+      @emit 'temperature', @temperature
+      @emit 'light', @light
+      @emit 'moisture', @moisture
+      @emit 'fertility', @fertility
 
     parseFirmwareData: (peripheral, data) ->
       @battery = parseInt(data.toString('hex', 0, 1), 16)
       @firmware = data.toString('ascii', 2, data.length)
       env.logger.debug 'firmware: %s', @firmware
       env.logger.debug 'battery: %s%', @battery
-      @emit 'battery', Number @battery
+      @emit 'battery', @battery
     
     destroy: ->
       @plugin.removeFromScan @uuid
       super()
 
-    getTemperature: ->
-      env.logger.debug 'temperature: %s °C', @temperature
-      Promise.resolve @temperature
+    getTemperature: -> Promise.resolve @temperature
     getLight: -> Promise.resolve @light
     getMoisture: -> Promise.resolve @moisture
     getFertility: -> Promise.resolve @fertility
