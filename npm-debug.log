@@ -1,0 +1,366 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.15.11
+3 info using node@v4.6.2
+4 verbose readDependencies loading dependencies from /home/pimatic/pimatic-dev/node_modules/pimatic-mi-flora/package.json
+5 warn package.json pimatic-mi-flora@0.0.2 No repository field.
+6 verbose install where, deps [ '/home/pimatic/pimatic-dev/node_modules/pimatic-mi-flora',
+6 verbose install   [] ]
+7 verbose install peerDependency pimatic wasn't going to be installed; adding
+8 warn peerDependencies The peer dependency pimatic included from pimatic-mi-flora will no
+9 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+10 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+11 verbose install peerDependency pimatic-ble wasn't going to be installed; adding
+12 warn peerDependencies The peer dependency pimatic-ble included from pimatic-mi-flora will no
+13 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+14 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+15 verbose install where, peers [ '/home/pimatic/pimatic-dev/node_modules/pimatic-mi-flora',
+15 verbose install   [ 'pimatic', 'pimatic-ble' ] ]
+16 verbose installManyTop reading for lifecycle /home/pimatic/pimatic-dev/node_modules/pimatic-mi-flora/package.json
+17 info preinstall pimatic-mi-flora@0.0.2
+18 verbose readDependencies loading dependencies from /home/pimatic/pimatic-dev/node_modules/pimatic-mi-flora/package.json
+19 silly cache add args [ 'pimatic-ble@>=0.9.*', null ]
+20 verbose cache add spec pimatic-ble@>=0.9.*
+21 silly cache add parsed spec Result {
+21 silly cache add   raw: 'pimatic-ble@>=0.9.*',
+21 silly cache add   scope: null,
+21 silly cache add   name: 'pimatic-ble',
+21 silly cache add   rawSpec: '>=0.9.*',
+21 silly cache add   spec: '>=0.9.0',
+21 silly cache add   type: 'range' }
+22 silly addNamed pimatic-ble@>=0.9.0
+23 verbose addNamed ">=0.9.0" is a valid semver range for pimatic-ble
+24 silly addNameRange { name: 'pimatic-ble', range: '>=0.9.0', hasData: false }
+25 silly mapToRegistry name pimatic-ble
+26 silly mapToRegistry using default registry
+27 silly mapToRegistry registry https://registry.npmjs.org/
+28 silly mapToRegistry data Result {
+28 silly mapToRegistry   raw: 'pimatic-ble',
+28 silly mapToRegistry   scope: null,
+28 silly mapToRegistry   name: 'pimatic-ble',
+28 silly mapToRegistry   rawSpec: '',
+28 silly mapToRegistry   spec: 'latest',
+28 silly mapToRegistry   type: 'tag' }
+29 silly mapToRegistry uri https://registry.npmjs.org/pimatic-ble
+30 verbose addNameRange registry:https://registry.npmjs.org/pimatic-ble not in flight; fetching
+31 silly cache add args [ 'pimatic@>=0.8.0 <1.0.0', null ]
+32 verbose cache add spec pimatic@>=0.8.0 <1.0.0
+33 silly cache add parsed spec Result {
+33 silly cache add   raw: 'pimatic@>=0.8.0 <1.0.0',
+33 silly cache add   scope: null,
+33 silly cache add   name: 'pimatic',
+33 silly cache add   rawSpec: '>=0.8.0 <1.0.0',
+33 silly cache add   spec: '>=0.8.0 <1.0.0',
+33 silly cache add   type: 'range' }
+34 silly addNamed pimatic@>=0.8.0 <1.0.0
+35 verbose addNamed ">=0.8.0 <1.0.0" is a valid semver range for pimatic
+36 silly addNameRange { name: 'pimatic', range: '>=0.8.0 <1.0.0', hasData: false }
+37 silly mapToRegistry name pimatic
+38 silly mapToRegistry using default registry
+39 silly mapToRegistry registry https://registry.npmjs.org/
+40 silly mapToRegistry data Result {
+40 silly mapToRegistry   raw: 'pimatic',
+40 silly mapToRegistry   scope: null,
+40 silly mapToRegistry   name: 'pimatic',
+40 silly mapToRegistry   rawSpec: '',
+40 silly mapToRegistry   spec: 'latest',
+40 silly mapToRegistry   type: 'tag' }
+41 silly mapToRegistry uri https://registry.npmjs.org/pimatic
+42 verbose addNameRange registry:https://registry.npmjs.org/pimatic not in flight; fetching
+43 verbose request uri https://registry.npmjs.org/pimatic-ble
+44 verbose request no auth needed
+45 info attempt registry request try #1 at 10:37:18 PM
+46 verbose request id 750b6745022078aa
+47 verbose etag W/"54e89594-7ab"
+48 verbose lastModified Sat, 21 Feb 2015 14:26:28 GMT
+49 http request GET https://registry.npmjs.org/pimatic-ble
+50 verbose request uri https://registry.npmjs.org/pimatic
+51 verbose request no auth needed
+52 info attempt registry request try #1 at 10:37:18 PM
+53 verbose etag W/"59a96fd8-725ce"
+54 verbose lastModified Fri, 01 Sep 2017 14:34:00 GMT
+55 http request GET https://registry.npmjs.org/pimatic
+56 http 304 https://registry.npmjs.org/pimatic-ble
+57 verbose headers { date: 'Sun, 03 Dec 2017 21:37:18 GMT',
+57 verbose headers   via: '1.1 varnish',
+57 verbose headers   'cache-control': 'max-age=300',
+57 verbose headers   etag: 'W/"54e89594-7ab"',
+57 verbose headers   age: '0',
+57 verbose headers   connection: 'keep-alive',
+57 verbose headers   'x-served-by': 'cache-ams4126-AMS',
+57 verbose headers   'x-cache': 'MISS',
+57 verbose headers   'x-cache-hits': '0',
+57 verbose headers   'x-timer': 'S1512337039.836267,VS0,VE7',
+57 verbose headers   vary: 'Accept-Encoding, Accept' }
+58 silly get cb [ 304,
+58 silly get   { date: 'Sun, 03 Dec 2017 21:37:18 GMT',
+58 silly get     via: '1.1 varnish',
+58 silly get     'cache-control': 'max-age=300',
+58 silly get     etag: 'W/"54e89594-7ab"',
+58 silly get     age: '0',
+58 silly get     connection: 'keep-alive',
+58 silly get     'x-served-by': 'cache-ams4126-AMS',
+58 silly get     'x-cache': 'MISS',
+58 silly get     'x-cache-hits': '0',
+58 silly get     'x-timer': 'S1512337039.836267,VS0,VE7',
+58 silly get     vary: 'Accept-Encoding, Accept' } ]
+59 verbose etag https://registry.npmjs.org/pimatic-ble from cache
+60 verbose get saving pimatic-ble to /home/pimatic/.npm/registry.npmjs.org/pimatic-ble/.cache.json
+61 verbose correctMkdir /home/pimatic/.npm correctMkdir not in flight; initializing
+62 http 304 https://registry.npmjs.org/pimatic
+63 verbose headers { date: 'Sun, 03 Dec 2017 21:37:18 GMT',
+63 verbose headers   via: '1.1 varnish',
+63 verbose headers   'cache-control': 'max-age=300',
+63 verbose headers   etag: 'W/"59a96fd8-725ce"',
+63 verbose headers   age: '0',
+63 verbose headers   connection: 'keep-alive',
+63 verbose headers   'x-served-by': 'cache-ams4120-AMS',
+63 verbose headers   'x-cache': 'MISS',
+63 verbose headers   'x-cache-hits': '0',
+63 verbose headers   'x-timer': 'S1512337039.845434,VS0,VE7',
+63 verbose headers   vary: 'Accept-Encoding, Accept' }
+64 silly get cb [ 304,
+64 silly get   { date: 'Sun, 03 Dec 2017 21:37:18 GMT',
+64 silly get     via: '1.1 varnish',
+64 silly get     'cache-control': 'max-age=300',
+64 silly get     etag: 'W/"59a96fd8-725ce"',
+64 silly get     age: '0',
+64 silly get     connection: 'keep-alive',
+64 silly get     'x-served-by': 'cache-ams4120-AMS',
+64 silly get     'x-cache': 'MISS',
+64 silly get     'x-cache-hits': '0',
+64 silly get     'x-timer': 'S1512337039.845434,VS0,VE7',
+64 silly get     vary: 'Accept-Encoding, Accept' } ]
+65 verbose etag https://registry.npmjs.org/pimatic from cache
+66 verbose get saving pimatic to /home/pimatic/.npm/registry.npmjs.org/pimatic/.cache.json
+67 verbose correctMkdir /home/pimatic/.npm correctMkdir already in flight; waiting
+68 silly addNameRange number 2 { name: 'pimatic-ble', range: '>=0.9.0', hasData: true }
+69 silly addNameRange versions [ 'pimatic-ble', [ '0.8.0' ] ]
+70 silly addNameRange number 2 { name: 'pimatic', range: '>=0.8.0 <1.0.0', hasData: true }
+71 silly addNameRange versions [ 'pimatic',
+71 silly addNameRange   [ '0.1.2',
+71 silly addNameRange     '0.1.3',
+71 silly addNameRange     '0.1.4',
+71 silly addNameRange     '0.1.5',
+71 silly addNameRange     '0.3.0',
+71 silly addNameRange     '0.3.2',
+71 silly addNameRange     '0.3.3',
+71 silly addNameRange     '0.4.0',
+71 silly addNameRange     '0.4.1',
+71 silly addNameRange     '0.4.2',
+71 silly addNameRange     '0.5.0',
+71 silly addNameRange     '0.5.1',
+71 silly addNameRange     '0.5.2',
+71 silly addNameRange     '0.5.3',
+71 silly addNameRange     '0.5.4',
+71 silly addNameRange     '0.5.5',
+71 silly addNameRange     '0.5.6',
+71 silly addNameRange     '0.6.0',
+71 silly addNameRange     '0.6.1',
+71 silly addNameRange     '0.6.2',
+71 silly addNameRange     '0.6.3',
+71 silly addNameRange     '0.6.4',
+71 silly addNameRange     '0.6.5',
+71 silly addNameRange     '0.6.6',
+71 silly addNameRange     '0.6.7',
+71 silly addNameRange     '0.6.8',
+71 silly addNameRange     '0.7.0',
+71 silly addNameRange     '0.7.1',
+71 silly addNameRange     '0.7.2',
+71 silly addNameRange     '0.7.3',
+71 silly addNameRange     '0.7.4',
+71 silly addNameRange     '0.7.5',
+71 silly addNameRange     '0.7.6',
+71 silly addNameRange     '0.7.7',
+71 silly addNameRange     '0.7.8',
+71 silly addNameRange     '0.7.9',
+71 silly addNameRange     '0.7.10',
+71 silly addNameRange     '0.7.11',
+71 silly addNameRange     '0.7.12',
+71 silly addNameRange     '0.8.0',
+71 silly addNameRange     '0.8.1',
+71 silly addNameRange     '0.8.2',
+71 silly addNameRange     '0.8.3',
+71 silly addNameRange     '0.8.4',
+71 silly addNameRange     '0.8.5',
+71 silly addNameRange     '0.8.6',
+71 silly addNameRange     '0.8.7',
+71 silly addNameRange     '0.8.8',
+71 silly addNameRange     '0.8.9',
+71 silly addNameRange     '0.8.10',
+71 silly addNameRange     '0.8.11',
+71 silly addNameRange     '0.8.12',
+71 silly addNameRange     '0.8.13',
+71 silly addNameRange     '0.8.14',
+71 silly addNameRange     '0.8.15',
+71 silly addNameRange     '0.8.16',
+71 silly addNameRange     '0.8.17',
+71 silly addNameRange     '0.8.18',
+71 silly addNameRange     '0.8.19',
+71 silly addNameRange     '0.8.20',
+71 silly addNameRange     '0.8.21',
+71 silly addNameRange     '0.8.22',
+71 silly addNameRange     '0.8.23',
+71 silly addNameRange     '0.8.24',
+71 silly addNameRange     '0.8.25',
+71 silly addNameRange     '0.8.26',
+71 silly addNameRange     '0.8.27',
+71 silly addNameRange     '0.8.28',
+71 silly addNameRange     '0.8.29',
+71 silly addNameRange     '0.8.30',
+71 silly addNameRange     '0.8.31',
+71 silly addNameRange     '0.8.32',
+71 silly addNameRange     '0.8.33',
+71 silly addNameRange     '0.8.34',
+71 silly addNameRange     '0.8.35',
+71 silly addNameRange     '0.8.36',
+71 silly addNameRange     '0.8.37',
+71 silly addNameRange     '0.8.38',
+71 silly addNameRange     '0.8.39',
+71 silly addNameRange     '0.8.40',
+71 silly addNameRange     '0.8.41',
+71 silly addNameRange     '0.8.42',
+71 silly addNameRange     '0.8.43',
+71 silly addNameRange     '0.8.44',
+71 silly addNameRange     '0.8.45',
+71 silly addNameRange     '0.8.46',
+71 silly addNameRange     '0.8.47',
+71 silly addNameRange     '0.8.48',
+71 silly addNameRange     '0.8.49',
+71 silly addNameRange     '0.8.50',
+71 silly addNameRange     '0.8.51',
+71 silly addNameRange     '0.8.52',
+71 silly addNameRange     '0.8.53',
+71 silly addNameRange     '0.8.54',
+71 silly addNameRange     '0.8.55',
+71 silly addNameRange     '0.8.56',
+71 silly addNameRange     '0.8.57',
+71 silly addNameRange     '0.8.58',
+71 silly addNameRange     '0.8.59',
+71 silly addNameRange     '0.8.60',
+71 silly addNameRange     '0.8.61',
+71 silly addNameRange     '0.8.62',
+71 silly addNameRange     '0.8.63',
+71 silly addNameRange     '0.8.64',
+71 silly addNameRange     '0.8.65',
+71 silly addNameRange     '0.8.66',
+71 silly addNameRange     '0.8.67',
+71 silly addNameRange     '0.8.68',
+71 silly addNameRange     '0.8.69',
+71 silly addNameRange     '0.8.70',
+71 silly addNameRange     '0.8.71',
+71 silly addNameRange     '0.8.72',
+71 silly addNameRange     '0.8.73',
+71 silly addNameRange     '0.8.74',
+71 silly addNameRange     '0.8.75',
+71 silly addNameRange     '0.8.76',
+71 silly addNameRange     '0.8.77',
+71 silly addNameRange     '0.8.78',
+71 silly addNameRange     '0.8.79',
+71 silly addNameRange     '0.8.80',
+71 silly addNameRange     '0.8.81',
+71 silly addNameRange     '0.8.82',
+71 silly addNameRange     '0.8.83',
+71 silly addNameRange     '0.8.84',
+71 silly addNameRange     '0.8.85',
+71 silly addNameRange     '0.8.86',
+71 silly addNameRange     '0.8.87',
+71 silly addNameRange     '0.8.88',
+71 silly addNameRange     '0.8.89',
+71 silly addNameRange     '0.8.90',
+71 silly addNameRange     '0.8.91',
+71 silly addNameRange     '0.8.92',
+71 silly addNameRange     '0.8.93',
+71 silly addNameRange     '0.8.94',
+71 silly addNameRange     '0.8.95',
+71 silly addNameRange     '0.8.96',
+71 silly addNameRange     '0.8.97',
+71 silly addNameRange     '0.8.98',
+71 silly addNameRange     '0.8.99',
+71 silly addNameRange     '0.8.100',
+71 silly addNameRange     '0.8.101',
+71 silly addNameRange     '0.8.102',
+71 silly addNameRange     '0.9.0',
+71 silly addNameRange     '0.9.1',
+71 silly addNameRange     '0.9.2',
+71 silly addNameRange     '0.9.3',
+71 silly addNameRange     '0.9.4',
+71 silly addNameRange     '0.9.5',
+71 silly addNameRange     '0.9.6',
+71 silly addNameRange     '0.9.7',
+71 silly addNameRange     '0.8.103',
+71 silly addNameRange     '0.8.104',
+71 silly addNameRange     '0.9.8',
+71 silly addNameRange     '0.9.9',
+71 silly addNameRange     '0.8.105',
+71 silly addNameRange     '0.9.10',
+71 silly addNameRange     '0.8.106',
+71 silly addNameRange     '0.9.11',
+71 silly addNameRange     '0.9.12',
+71 silly addNameRange     '0.8.107',
+71 silly addNameRange     '0.9.13',
+71 silly addNameRange     '0.9.14',
+71 silly addNameRange     '0.9.15',
+71 silly addNameRange     '0.9.16',
+71 silly addNameRange     '0.9.17',
+71 silly addNameRange     '0.9.18',
+71 silly addNameRange     '0.9.19',
+71 silly addNameRange     '0.9.20',
+71 silly addNameRange     '0.9.21',
+71 silly addNameRange     '0.9.22',
+71 silly addNameRange     '0.9.23',
+71 silly addNameRange     '0.9.24',
+71 silly addNameRange     '0.9.25',
+71 silly addNameRange     '0.9.26',
+71 silly addNameRange     '0.9.27',
+71 silly addNameRange     '0.9.28',
+71 silly addNameRange     '0.9.29',
+71 silly addNameRange     '0.9.30',
+71 silly addNameRange     '0.9.31',
+71 silly addNameRange     '0.9.32',
+71 silly addNameRange     '0.9.33',
+71 silly addNameRange     '0.9.34',
+71 silly addNameRange     '0.9.35',
+71 silly addNameRange     '0.9.36',
+71 silly addNameRange     '0.9.36-a',
+71 silly addNameRange     '0.9.37',
+71 silly addNameRange     '0.9.38',
+71 silly addNameRange     '0.9.39',
+71 silly addNameRange     '0.9.40',
+71 silly addNameRange     '0.9.41',
+71 silly addNameRange     '0.9.42' ] ]
+72 silly addNamed pimatic@0.9.42
+73 verbose addNamed "0.9.42" is a plain semver version for pimatic
+74 silly cache afterAdd pimatic@0.9.42
+75 verbose afterAdd /home/pimatic/.npm/pimatic/0.9.42/package/package.json not in flight; writing
+76 verbose correctMkdir /home/pimatic/.npm correctMkdir not in flight; initializing
+77 verbose afterAdd /home/pimatic/.npm/pimatic/0.9.42/package/package.json written
+78 verbose stack Error: No compatible version found: pimatic-ble@'>=0.9.0'
+78 verbose stack Valid install targets:
+78 verbose stack ["0.8.0"]
+78 verbose stack
+78 verbose stack     at installTargetsError (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:284:12)
+78 verbose stack     at next (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:262:19)
+78 verbose stack     at setData (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:236:5)
+78 verbose stack     at RES (/usr/local/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+78 verbose stack     at f (/usr/local/lib/node_modules/npm/node_modules/once/once.js:25:25)
+78 verbose stack     at fixName (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:29:5)
+78 verbose stack     at saved (/usr/local/lib/node_modules/npm/lib/cache/caching-client.js:173:7)
+78 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:233:18
+78 verbose stack     at FSReqWrap.oncomplete (fs.js:82:15)
+79 verbose cwd /home/pimatic/pimatic-dev/node_modules/pimatic-mi-flora
+80 error Linux 4.9.35-v7+
+81 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+82 error node v4.6.2
+83 error npm  v2.15.11
+84 error code ETARGET
+85 error notarget No compatible version found: pimatic-ble@'>=0.9.0'
+85 error notarget Valid install targets:
+85 error notarget ["0.8.0"]
+85 error notarget
+85 error notarget This is most likely not a problem with npm itself.
+85 error notarget In most cases you or one of your dependencies are requesting
+85 error notarget a package version that doesn't exist.
+85 error notarget
+85 error notarget It was specified as a dependency of 'pimatic-mi-flora'
+86 verbose exit [ 1, true ]

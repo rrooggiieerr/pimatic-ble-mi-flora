@@ -26,6 +26,7 @@ module.exports = (env) ->
 
           @ble.on('discover', (peripheral) =>
             @emit 'discover-' + peripheral.uuid, peripheral
+            # ToDo: Auto discover
           )
         else
           env.logger.warn 'mi-flora could not find ble. It will not be able to discover devices'
@@ -38,7 +39,7 @@ module.exports = (env) ->
         @devices.push uuid
 
     removeFromScan: (uuid) =>
-      env.logger.debug 'Removing device ', uuid
+      env.logger.debug 'Removing device %s', uuid
       if @ble?
         @ble.removeFromScan uuid
       else
@@ -89,12 +90,12 @@ module.exports = (env) ->
       @fertility = lastState?.fertility?.value or 0
       @battery = lastState?.battery?.value or 0.0
 
-      super()
-
       @plugin.on('discover-' + @uuid, (peripheral) =>
         env.logger.debug 'Device %s found, state: %s', @name, peripheral.state
         @connect peripheral
       )
+
+      super()
 
     connect: (peripheral) ->
       @peripheral = peripheral
@@ -103,7 +104,8 @@ module.exports = (env) ->
       @peripheral.on 'disconnect', (error) =>
         env.logger.debug 'Device %s disconnected', @name
 
-      setInterval( =>
+      clearInterval @connectInterval
+      @connectInterval = setInterval( =>
         @_connect()
       , @interval)
 
@@ -161,6 +163,8 @@ module.exports = (env) ->
       @emit 'battery', @battery
     
     destroy: ->
+      env.logger.debug 'Destroy %s', @name
+      clearInterval(@connectInterval)
       @plugin.removeFromScan @uuid
       super()
 
