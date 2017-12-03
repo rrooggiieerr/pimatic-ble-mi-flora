@@ -11,9 +11,9 @@ module.exports = (env) ->
 
       @framework.deviceManager.registerDeviceClass('MiFloraDevice', {
         configDef: deviceConfigDef.MiFloraDevice,
-        createCallback: (config) =>
+        createCallback: (config, lastState) =>
           @addOnScan config.uuid
-          new MiFloraDevice(config)
+          return new MiFloraDevice(config, @, lastState)
       })
 
       @framework.on 'after init', =>
@@ -22,7 +22,7 @@ module.exports = (env) ->
           @ble.registerName 'Flower mate'
           @ble.registerName 'Flower care'
 
-          @ble.addOnScan device for device in @devices
+          (@ble.addOnScan device for device in @devices)
 
           @ble.on('discover', (peripheral) =>
             @emit 'discover-' + peripheral.uuid, peripheral
@@ -75,30 +75,39 @@ module.exports = (env) ->
     SERVICE_UUIDS = [ DATA_SERVICE_UUID ]
     CHARACTERISTIC_UUIDS = [ DATA_CHARACTERISTIC_UUID, FIRMWARE_CHARACTERISTIC_UUID, REALTIME_CHARACTERISTIC_UUID ]
 
-    temperature: 0.0
-    light: 0
-    moisture: 0
-    fertility: 0
-    battery: 0.0
+    temperature: null
+    light: null
+    moisture: null
+    fertility: null
+    battery: null
     firmware: null
 
-    constructor: (@config) ->
+    constructor: (@config, plugin, lastState) ->
+      env.logger.debug 'lastState: '
+      env.logger.debug lastState
       @id = @config.id
       @name = @config.name
       @interval = @config.interval
       @uuid = @config.uuid
       @peripheral = null
+      @plugin = plugin
+
+      @temperature = lastState?.temperature?.value or 0.0
+      @light = lastState?.light?.value or 0
+      @moisture = lastState?.moisture?.value or 0
+      @fertility = lastState?.fertility?.value or 0
+      @battery = lastState?.battery?.value or 0.0
 
       super()
 
-      plugin.on('discover-' + @uuid, (peripheral) =>
+      @plugin.on('discover-' + @uuid, (peripheral) =>
         env.logger.debug 'Device %s found, state: %s', @name, peripheral.state
         @connect peripheral
       )
 
     connect: (peripheral) ->
       @peripheral = peripheral
-      plugin.removeFromScan @uuid
+      @plugin.removeFromScan @uuid
 
       @peripheral.on 'disconnect', (error) =>
         env.logger.debug 'Device %s disconnected', @name
@@ -111,11 +120,11 @@ module.exports = (env) ->
 
     _connect: ->
       if @peripheral.state == 'disconnected'
-        plugin.ble.stopScanning()
+        @plugin.ble.stopScanning()
         @peripheral.connect (error) =>
           if !error
             env.logger.debug 'Device %s connected', @name
-            plugin.ble.startScanning()
+            @plugin.ble.startScanning()
             @readData @peripheral
           else
             env.logger.debug 'Device %s connection failed: %s', @name, error
@@ -146,29 +155,30 @@ module.exports = (env) ->
       @fertility = data.readUInt16LE(8)
       env.logger.debug 'temperature: %s °C', @temperature
       env.logger.debug 'Light: %s lux', @light
-      env.logger.debug 'moisture: %s %', @moisture
+      env.logger.debug 'moisture: %s%', @moisture
       env.logger.debug 'fertility: %s µS/cm', @fertility
-      @emit 'temperature', @temperature
-      @emit 'light', @light
-      @emit 'moisture', @moisture
-      @emit 'fertility', @fertility
+      @emit 'temperature', Number @temperature
+      @emit 'light', Number @light
+      @emit 'moisture', Number @moisture
+      @emit 'fertility', Number @fertility
 
     parseFirmwareData: (peripheral, data) ->
       @battery = parseInt(data.toString('hex', 0, 1), 16)
       @firmware = data.toString('ascii', 2, data.length)
       env.logger.debug 'firmware: %s', @firmware
-      env.logger.debug 'battery: %s', @battery
-      @emit 'battery', @battery
+      env.logger.debug 'battery: %s%', @battery
+      @emit 'battery', Number @battery
     
     destroy: ->
-      plugin.removeFromScan @uuid
+      @plugin.removeFromScan @uuid
       super()
 
-    getTemperature: -> Promise.resolve @temperature
+    getTemperature: ->
+      env.logger.debug 'temperature: %s °C', @temperature
+      Promise.resolve @temperature
     getLight: -> Promise.resolve @light
     getMoisture: -> Promise.resolve @moisture
     getFertility: -> Promise.resolve @fertility
     getBattery: -> Promise.resolve @battery
 
-  plugin = new MiFloraPlugin
-  return plugin
+  return new MiFloraPlugin
