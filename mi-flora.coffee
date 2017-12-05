@@ -63,28 +63,43 @@ module.exports = (env) ->
       if @devices[uuid]
         delete @devices[uuid]
 
-  class MiFloraDevice extends env.devices.Sensor
+  class MiFloraDevice extends env.devices.TemperatureSensor
     attributes:
       temperature:
-        description: ''
+        description: 'The measured temperature'
         type: 'number'
         unit: '°C'
+        acronym: 'T'
       light:
-        description: ''
+        description: 'The measured brightness'
         type: 'number'
         unit: 'lx'
+        acronym: '☀️'
       moisture:
-        description: ''
+        description: 'The measured moisture level'
         type: 'number'
         unit: '%'
+        acronym: '💦'
       fertility:
-        description: ''
+        description: 'The measured fertility level'
         type: 'number'
         unit: 'µS/cm'
       battery:
-        description: 'State of battery'
+        description: 'Battery status'
         type: 'number'
         unit: '%'
+        acronym: '🔋'
+      presence:
+        description: 'Presence of the plant sensor'
+        type: 'boolean'
+        labels: ['present', 'absent']
+
+    actions:
+      getPresence:
+        description: 'Returns the current presence state'
+        returns:
+          presence:
+            type: 'boolean'
 
     DATA_SERVICE_UUID = '0000120400001000800000805f9b34fb'
     DATA_CHARACTERISTIC_UUID = '00001a0100001000800000805f9b34fb'
@@ -102,13 +117,12 @@ module.exports = (env) ->
       @peripheral = null
       @plugin = plugin
 
-      @temperature = lastState?.temperature?.value or 0.0
-      @light = lastState?.light?.value or 0
-      @moisture = lastState?.moisture?.value or 0
-      @fertility = lastState?.fertility?.value or 0
-      @battery = lastState?.battery?.value or 0.0
-      @_presence = false
-      #@_presence = lastState?.presence?.value or false
+      @_temperature = lastState?.temperature?.value or 0.0
+      @_light = lastState?.light?.value or 0
+      @_moisture = lastState?.moisture?.value or 0
+      @_fertility = lastState?.fertility?.value or 0
+      @_battery = lastState?.battery?.value or 0.0
+      @_presence = lastState?.presence?.value or false
 
       super()
 
@@ -133,12 +147,17 @@ module.exports = (env) ->
         @peripheral.connect (error) =>
           if !error
             env.logger.debug 'Device %s connected', @name
-            #ToDo @_setPresence true
+            @_setPresence true
             @readData @peripheral
           else
             env.logger.debug 'Device %s connection failed: %s', @name, error
-            #ToDo @_setPresence false
+            @_setPresence false
           @plugin.ble.startScanning()
+
+    _setPresence: (value) ->
+      if @_presence is value then return
+      @_presence = value
+      @emit 'presence', value
 
     readData: (peripheral) ->
       env.logger.debug 'Reading data from %s', @name
@@ -160,25 +179,24 @@ module.exports = (env) ->
             #    env.logger.debug '%s: %s (%s)', characteristic.uuid, data, error
 
     parseData: (peripheral, data) ->
-      @temperature = data.readUInt16LE(0) / 10
-      @light = data.readUInt32LE(3)
-      @moisture = data.readUInt16BE(6)
-      @fertility = data.readUInt16LE(8)
-      env.logger.debug 'temperature: %s °C', @temperature
-      env.logger.debug 'Light: %s lux', @light
-      env.logger.debug 'moisture: %s%', @moisture
-      env.logger.debug 'fertility: %s µS/cm', @fertility
-      @emit 'temperature', @temperature
-      @emit 'light', @light
-      @emit 'moisture', @moisture
-      @emit 'fertility', @fertility
+      @_setTemperature data.readUInt16LE(0) / 10
+      @_light = data.readUInt32LE(3)
+      @emit 'light', @_light
+      @_moisture = data.readUInt16BE(6)
+      @emit 'moisture', @_moisture
+      @_fertility = data.readUInt16LE(8)
+      @emit 'fertility', @_fertility
+      env.logger.debug 'temperature: %s °C', @_temperature
+      env.logger.debug 'Light: %s lux', @_light
+      env.logger.debug 'moisture: %s%', @_moisture
+      env.logger.debug 'fertility: %s µS/cm', @_fertility
 
     parseFirmwareData: (peripheral, data) ->
-      @battery = parseInt(data.toString('hex', 0, 1), 16)
-      @firmware = data.toString('ascii', 2, data.length)
-      env.logger.debug 'firmware: %s', @firmware
-      env.logger.debug 'battery: %s%', @battery
-      @emit 'battery', @battery
+      @_firmware = data.toString('ascii', 2, data.length)
+      @_battery = parseInt(data.toString('hex', 0, 1), 16)
+      @emit 'battery', @_battery
+      env.logger.debug 'firmware: %s', @_firmware
+      env.logger.debug 'battery: %s%', @_battery
     
     destroy: ->
       env.logger.debug 'Destroy %s', @name
@@ -194,10 +212,10 @@ module.exports = (env) ->
 
       clearInterval(@reconnectInterval)
 
-    getTemperature: -> Promise.resolve @temperature
-    getLight: -> Promise.resolve @light
-    getMoisture: -> Promise.resolve @moisture
-    getFertility: -> Promise.resolve @fertility
-    getBattery: -> Promise.resolve @battery
+    getLight: -> Promise.resolve @_light
+    getMoisture: -> Promise.resolve @_moisture
+    getFertility: -> Promise.resolve @_fertility
+    getBattery: -> Promise.resolve @_battery
+    getPresence: -> Promise.resolve(@_presence)
 
   return new MiFloraPlugin
