@@ -1,49 +1,67 @@
 module.exports = (env) ->
   Promise = env.require 'bluebird'
-  assert = env.require 'cassert'
 
   events = require 'events'
 
   class MiFloraPlugin extends env.plugins.Plugin
     init: (app, @framework, @config) =>
-      deviceConfigDef = require('./device-config-schema')
-      @devices = []
+      @devices = {}
 
+      deviceConfigDef = require('./device-config-schema')
       @framework.deviceManager.registerDeviceClass('MiFloraDevice', {
         configDef: deviceConfigDef.MiFloraDevice,
         createCallback: (config, lastState) =>
-          @addOnScan config.uuid
-          return new MiFloraDevice(config, @, lastState)
+          device = new MiFloraDevice(config, @, lastState)
+          @addToScan config.uuid, device
+          return device
       })
+
+      @framework.deviceManager.on 'discover', (eventData) =>
+          @framework.deviceManager.discoverMessage 'pimatic-mi-flora', 'Scanning for Mi Flora plant sensors'
+
+          @ble.on 'discover-mi-flora', (peripheral) =>
+            env.logger.debug 'Device %s found, state: %s', peripheral.uuid, peripheral.state
+            config = {
+              class: 'MiFloraDevice',
+              uuid: peripheral.uuid
+            }
+            @framework.deviceManager.discoveredDevice(
+              'pimatic-mi-flora', 'Mi Flora plant sensor ' + peripheral.uuid, config
+            )
 
       @framework.on 'after init', =>
         @ble = @framework.pluginManager.getPlugin 'ble'
         if @ble?
-          @ble.registerName 'Flower mate'
-          @ble.registerName 'Flower care'
+          @ble.registerName 'Flower mate', 'mi-flora'
+          @ble.registerName 'Flower care', 'mi-flora'
 
-          @ble.addOnScan device for device in @devices
-
-          @ble.on('discover', (peripheral) =>
-            @emit 'discover-' + peripheral.uuid, peripheral
-            # ToDo: Auto discover
-          )
+          for uuid, device of @devices
+            @ble.on 'discover-' + uuid, (peripheral) =>
+              device = @devices[peripheral.uuid]
+              env.logger.debug 'Device %s found, state: %s', device.name, peripheral.state
+              #@removeFromScan peripheral.uuid
+              device.connect peripheral
+            @ble.addToScan uuid, device
         else
           env.logger.warn 'mi-flora could not find ble. It will not be able to discover devices'
 
-    addOnScan: (uuid) =>
+    addToScan: (uuid, device) =>
       env.logger.debug 'Adding device %s', uuid
       if @ble?
-        @ble.addOnScan uuid
-      else
-        @devices.push uuid
+        @ble.on 'discover-' + uuid, (peripheral) =>
+          device = @devices[peripheral.uuid]
+          env.logger.debug 'Device %s found, state: %s', device.name, peripheral.state
+          #@removeFromScan peripheral.uuid
+          device.connect peripheral
+        @ble.addToScan uuid, device
+      @devices[uuid] = device
 
     removeFromScan: (uuid) =>
       env.logger.debug 'Removing device %s', uuid
       if @ble?
         @ble.removeFromScan uuid
-      else
-        @devices.splice @devices.indexOf(uuid), 1
+      if @devices[uuid]
+        delete @devices[uuid]
 
   class MiFloraDevice extends env.devices.Sensor
     attributes:
@@ -89,41 +107,41 @@ module.exports = (env) ->
       @moisture = lastState?.moisture?.value or 0
       @fertility = lastState?.fertility?.value or 0
       @battery = lastState?.battery?.value or 0.0
-
-      @plugin.on('discover-' + @uuid, (peripheral) =>
-        env.logger.debug 'Device %s found, state: %s', @name, peripheral.state
-        @connect peripheral
-      )
+      @_presence = false
+      #@_presence = lastState?.presence?.value or false
 
       super()
 
     connect: (peripheral) ->
       @peripheral = peripheral
-      @plugin.removeFromScan @uuid
 
       @peripheral.on 'disconnect', (error) =>
         env.logger.debug 'Device %s disconnected', @name
 
-      clearInterval @connectInterval
-      @connectInterval = setInterval( =>
+      clearInterval @reconnectInterval
+      if @_destroyed then return
+      @reconnectInterval = setInterval( =>
         @_connect()
       , @interval)
-
       @_connect()
 
     _connect: ->
+      if @_destroyed then return
       if @peripheral.state == 'disconnected'
+        env.logger.debug 'Trying to connect to %s', @name
         @plugin.ble.stopScanning()
         @peripheral.connect (error) =>
           if !error
             env.logger.debug 'Device %s connected', @name
-            @plugin.ble.startScanning()
+            #ToDo @_setPresence true
             @readData @peripheral
           else
             env.logger.debug 'Device %s connection failed: %s', @name, error
+            #ToDo @_setPresence false
+          @plugin.ble.startScanning()
 
     readData: (peripheral) ->
-      env.logger.debug 'readData'
+      env.logger.debug 'Reading data from %s', @name
       peripheral.discoverSomeServicesAndCharacteristics @SERVICE_UUIDS, @CHARACTERISTIC_UUIDS, (error, services, characteristics) =>
         characteristics.forEach (characteristic) =>
           switch characteristic.uuid
@@ -164,9 +182,17 @@ module.exports = (env) ->
     
     destroy: ->
       env.logger.debug 'Destroy %s', @name
-      clearInterval(@connectInterval)
+      @_destroyed = true
+      @emit('destroy', @)
+      @removeAllListeners('destroy')
+      @removeAllListeners(attrName) for attrName of @attributes
+
+      if @peripheral && @peripheral.state == 'connected'
+        @peripheral.disconnect()
       @plugin.removeFromScan @uuid
       super()
+
+      clearInterval(@reconnectInterval)
 
     getTemperature: -> Promise.resolve @temperature
     getLight: -> Promise.resolve @light
