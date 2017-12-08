@@ -179,10 +179,10 @@ module.exports = (env) ->
             #    env.logger.debug '%s: %s (%s)', characteristic.uuid, data, error
 
     parseData: (peripheral, data) ->
-      @_setTemperature data.readUInt16LE(0) / 10
-      @_light = data.readUInt32LE(3)
+      @_setTemperature data.readInt16LE(0) / 10
+      @_light = data.readUInt16LE(3)
       @emit 'light', @_light
-      @_moisture = data.readUInt16BE(6)
+      @_moisture = data.readUInt8(7)
       @emit 'moisture', @_moisture
       @_fertility = data.readUInt16LE(8)
       @emit 'fertility', @_fertility
