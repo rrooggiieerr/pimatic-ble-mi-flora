@@ -17,7 +17,7 @@ module.exports = (env) ->
       })
 
       @framework.deviceManager.on 'discover', (eventData) =>
-          @framework.deviceManager.discoverMessage 'pimatic-mi-flora', 'Scanning for Mi Flora plant sensors'
+          @framework.deviceManager.discoverMessage 'pimatic-ble-mi-flora', 'Scanning for Mi Flora plant sensors'
 
           @ble.on 'discover-mi-flora', (peripheral) =>
             env.logger.debug 'Device %s found, state: %s', peripheral.uuid, peripheral.state
@@ -26,7 +26,7 @@ module.exports = (env) ->
               uuid: peripheral.uuid
             }
             @framework.deviceManager.discoveredDevice(
-              'pimatic-mi-flora', 'Mi Flora plant sensor ' + peripheral.uuid, config
+              'pimatic-ble-mi-flora', 'Mi Flora plant sensor ' + peripheral.uuid, config
             )
 
       @framework.on 'after init', =>

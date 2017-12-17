@@ -1,5 +1,5 @@
 module.exports ={
-  title: "pimatic-mi-flora device config schemas"
+  title: "pimatic-ble-mi-flora device config schemas"
   MiFloraDevice: {
     title: "Xiaomi Mi Flora config options"
     type: "object"
