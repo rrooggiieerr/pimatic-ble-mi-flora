@@ -12,5 +12,9 @@ module.exports ={
         description: "Interval between requests"
         type: "number"
         default: 300000
+      presence_timeout:
+        description: "Time until presence lost"
+        type: "number"
+        default: 300000
   }
 }
